@@ -5,8 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AllBook | Buy </title>
+    <title>AllBook | Buy</title>
     <link rel="stylesheet" href="payment.css">
+
+    <!-- Add Bootstrap CSS and JS links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.4/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 
 <body>
@@ -20,57 +26,185 @@
         <a href="notes.html">Notes</a>
         <a href="blogs.html">Blogs</a>
         <a href="Payment.html" style="background-color: black;">Buy</a>
+        <a href="account.html">Account</a>
         <a href="transaction.html">Transaction</a>
         <a href="about.html">About</a>
     </nav>
     <main>
+
         <form action="">
             <h1>Payment Form</h1>
             <hr>
             <fieldset>
                 <legend>Contact Information</legend>
-                <h2>Contact information</h2>
-                <p>First Name: *<input type="text" name="fname" required style="background-color: rgb(227, 240, 237);"></p>
-                <p>Last Name:<input type="text" name="lname" style="background-color: rgb(227, 240, 237);"></p>
-                <pre>
-                <fieldset>
-                    <legend>Gender *</legend>
-                    Male <input type="radio" name="gender" id="male" required>
-                    Female <input type="radio" name="gender" id="female" required>
-                </fieldset>
-            </pre>
-                <p>Address: *<textarea name="address" id="address" cols="30" rows="5" required style="background-color: rgb(227, 240, 237);"></textarea></p>
-                <p>Email: *<input type="email" name="email" id="email" required style="background-color: rgb(227, 240, 237);"></p>
-                <p>Pincode: * <input type="number" name="pincode" id="pincode" required style="background-color: rgb(227, 240, 237);"></p>
-            </fieldset>
+                <div class="container mt-5">
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Enter your name" required>
+                            <div class="invalid-feedback">Name is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label>Gender:</label>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender" id="male" value="Male" required>
+                                <label class="form-check-label" for="male">Male</label>
+                            </div>
+                            <div class="form-check">
+                                <input type="radio" class="form-check-input" name="gender" id="female" value="Female" required>
+                                <label class="form-check-label" for="female">Female</label>
+                            </div>
+                            <div class="invalid-feedback">Gender is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <textarea class="form-control" id="address" rows="3" placeholder="Enter your address" required></textarea>
+                            <div class="invalid-feedback">Address is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                            <div class="invalid-feedback">Email is required and must be in a valid format.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Pincode:</label>
+                            <input type="text" class="form-control" id="pincode" placeholder="Enter your pincode" required>
+                            <div class="invalid-feedback">Pincode is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cardType">Card Type:</label>
+                            <select class="form-control" id="cardType" required>
+                                <option value="Visa">Visa</option>
+                                <option value="MasterCard">MasterCard</option>
+                                <option value="Amex">American Express</option>
+                            </select>
+                            <div class="invalid-feedback">Card Type is required.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="cvv">CVV:</label>
+                            <input type="password" class="form-control" id="cvv" placeholder="Enter your CVV" required>
+                            <div class="invalid-feedback">CVV is required and must be 3-4 digits.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="expiryDate">Expiry Date:</label>
+                            <input type="date" class="form-control" id="expiryDate" required>
+                            <div class="invalid-feedback">Expiry Date is required.</div>
+                        </div>
+                        <button type="button" class="btn btn-primary" id="payNow">Pay Now</button>
+                        <button type="reset" class="btn btn-secondary">Reset</button>
+                    </form>
+                </div>
 
-            <fieldset>
-                <legend>Payment Information</legend>
-                <p>Card type: *
-                    <select name="card type" id="card type" required style="background-color: rgb(227, 240, 237);">
-                    <option value="">--Select a card type--</option>option>
-                    <option value="Visa">Visa</option>
-                    <option value="Debit card`">Debit card</option>
-                    <option value="Master card">Master card</option>
-                </select>
-                </p>
-                <p>Card Number: * <input type="number" name="card number" id="card number" required style="background-color: rgb(227, 240, 237);"></p>
-                <p>Expiration Date: * <input type="date" name="exp" id="exp" required style="background-color: rgb(227, 240, 237);"></p>
-                <p>CVV: * <input type="password" name="CVV" id="CVV" required style="background-color: rgb(227, 240, 237);"></p>
-            </fieldset>
-            <input type="submit" value="Pay Now">
-            <input type="reset" value="Reset">
-        </form>
-        <hr>
-        <h6>* :This field is required.</h6>
-    </main>
-    <footer>
-        <a href="#">FAQs</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Terms of Use</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">&copy; 2023 | AllBook</a>
-    </footer>
+                <!-- Payment Details Section -->
+                <div class="container mt-5">
+                    <h2>Payment Details</h2>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Gender</th>
+                                <th>Address</th>
+                                <th>Email</th>
+                                <th>Pincode</th>
+                                <th>Card Type</th>
+                                <th>CVV</th>
+                                <th>Expiry Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="paymentDetails"></tbody>
+                    </table>
+                </div>
+
+                <!-- JavaScript for form validation and payment confirmation -->
+                <script>
+                    document.getElementById('payNow').addEventListener('click', function(e) {
+                        e.preventDefault();
+
+                        // Perform form validation
+                        const name = document.getElementById('name').value;
+                        const gender = document.querySelector('input[name="gender"]:checked');
+                        const address = document.getElementById('address').value;
+                        const email = document.getElementById('email').value;
+                        const pincode = document.getElementById('pincode').value;
+                        const cardType = document.getElementById('cardType').value;
+                        const cvv = document.getElementById('cvv').value;
+                        const expiryDate = document.getElementById('expiryDate').value;
+
+                        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+                        const cvvPattern = /^[0-9]{3,4}$/;
+
+                        const validationErrors = [];
+
+                        if (!name) {
+                            validationErrors.push("Name is required.");
+                        }
+
+                        if (!gender) {
+                            validationErrors.push("Gender is required.");
+                        }
+
+                        if (!address) {
+                            validationErrors.push("Address is required.");
+                        }
+
+                        if (!email || !emailPattern.test(email)) {
+                            validationErrors.push("Email is required and must be in a valid format.");
+                        }
+
+                        if (!pincode) {
+                            validationErrors.push("Pincode is required.");
+                        }
+
+                        if (!cardType) {
+                            validationErrors.push("Card Type is required.");
+                        }
+
+                        if (!cvv || !cvvPattern.test(cvv)) {
+                            validationErrors.push("CVV is required and must be 3-4 digits.");
+                        }
+
+                        if (!expiryDate) {
+                            validationErrors.push("Expiry Date is required.");
+                        }
+
+                        if (validationErrors.length > 0) {
+                            alert(validationErrors.join('\n'));
+                        } else if (confirm("Are you sure?")) {
+                            // Payment logic goes here
+                            alert("Payment successful! \n Details Added below");
+
+                            // Display payment details in the table
+                            const name = document.getElementById('name').value;
+                            const gender = document.querySelector('input[name="gender"]:checked').value;
+                            const address = document.getElementById('address').value;
+                            const email = document.getElementById('email').value;
+                            const pincode = document.getElementById('pincode').value;
+                            const cardType = document.getElementById('cardType').value;
+                            const cvv = document.getElementById('cvv').value;
+                            const expiryDate = document.getElementById('expiryDate').value;
+
+                            const paymentDetailsTable = document.getElementById('paymentDetails');
+                            const newRow = paymentDetailsTable.insertRow();
+                            newRow.innerHTML = `
+                    <td>${name}</td>
+                    <td>${gender}</td>
+                    <td>${address}</td>
+                    <td>${email}</td>
+                    <td>${pincode}</td>
+                    <td>${cardType}</td>
+                    <td>${cvv}</td>
+                    <td>${expiryDate}</td>
+                `;
+
+                            // Clear form fields after payment
+                            document.getElementById('paymentForm').reset();
+                        }
+                    });
+                </script>
+
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
 </body>
 
 </html>
